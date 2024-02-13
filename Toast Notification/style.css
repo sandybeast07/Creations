@@ -1,0 +1,116 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #153677, #4e085f);
+    width: 100%;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: white;
+    width: 100%;
+    max-width: 60vw;
+    margin: 10% auto;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.container h1 {
+    text-align: center;
+    padding: 20px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    list-style-type: none;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    color: white;
+    outline: none;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+#success {
+    background-color: green;
+}
+
+#failure {
+    background-color: red;
+}
+
+#error {
+    background-color: black;
+}
+
+#toast-box {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column-reverse;
+}
+
+.toast {
+    width: 250px;
+    background-color: white;
+    padding: 10px;
+    font-size: 15px;
+    margin: 8px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    transform: translateX(100%);
+    animation: moveOut 0.25s linear forwards;
+}
+
+@keyframes moveOut {
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.toast i {
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.toast::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4.5px;
+    animation: decrease 6s linear forwards;
+}
+
+@keyframes decrease {
+    100% {
+        width: 0;
+    }
+}
+
+.toast.success::after {
+    background-color: green;
+}
+
+.toast.error::after {
+    background-color: orange;
+}
+
+.toast.invalid::after {
+    background-color: red;
+}
